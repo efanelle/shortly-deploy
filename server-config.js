@@ -9,8 +9,6 @@ var handler = require('./lib/request-handler');
 
 var app = express();
 
-
-
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 app.use(partials());
@@ -23,6 +21,8 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+
+
 
 app.get('/', util.checkUser, handler.renderIndex);
 app.get('/create', util.checkUser, handler.renderIndex);
